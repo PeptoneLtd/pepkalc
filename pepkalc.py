@@ -69,7 +69,6 @@ def w2logp(x, R, T):
 
 # Argument parsing
 parser = argparse.ArgumentParser()
-parser.add_argument("--pdbdir", default='.')
 parser.add_argument("--sequence", default='nMDVFMKGLSKAKEGVVAAAEKTKQGVAEAAGKTKEGVLYVGSKTKEGVVHGVATVAEKTKEQVTNVGGAVVTGVTAVAQKTVEGAGSIAAATGFVKKDQLGKNEEGAPQEGILEDMPVDPDNEAYEMPSEEGYQDYEPEAc')
 parser.add_argument("--temperature", default=283.15)
 parser.add_argument("--ionicstrength", default=0.0)
