@@ -1,5 +1,5 @@
 # pepkalc
-Robust simulation software for the comprehensive evaluation of protein electrostatics in unfolded state
+Robust simulation software for the comprehensive evaluation of protein electrostatics in unfolded state.
 
 ## Protein electrostatics
 Protonation is a ubiquitous and important process in biology. Protein folding, ligand recognition, enzyme catalysis, membrane potentials, and the energetics of cells depend on ionization and proton transfer. Charge-charge interactions are of special importance for Intrinsically Disordered Proteins, which are known to contain abnormally high numbers of consecutive charged amino acids. Consequently, a great theoretical effort has been devoted to elucidation of protein electrostatic interactions in unfolded state.
@@ -56,3 +56,6 @@ The number of calculation super-cycles. Default value `3`.
 
 #### --nooutput
 Disable titration curve output.
+
+#### --silent
+Suppress program output.
