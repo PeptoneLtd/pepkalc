@@ -1,4 +1,4 @@
-import argparse, os, pickle
+import argparse
 from scipy.optimize import curve_fit
 from scipy.special import erfc
 import numpy as np
