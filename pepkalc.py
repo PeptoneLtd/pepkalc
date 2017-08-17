@@ -2,7 +2,6 @@ import argparse
 from scipy.optimize import curve_fit
 from scipy.special import erfc
 import numpy as np
-global aadict
 
 # Our amino acid conversion utilities
 three = ["ALA", "ARG", "ASN", "ASP", "CYS", "GLN", "GLU", "GLY", "HIS",
@@ -165,9 +164,9 @@ if not seq[0] == 'n':
     first = 1
 
 # Print the header
-print '%s, %s, %s' % ('RES','dpKa', 'n')
+print '%s, %s, %s, %s' % ('RES','pKa', 'dpKa', 'n')
 for i in range(len(sol)):
-    print '%s, %f, %f' % (seq[pos[i]] + str(pos[i] + first), pKs[i] - pK0s[i], nHs[i]) #pKs[i]#, pKs[i] - pK0s[i], nHs[i]
+    print '%s, %f, %f, %f' % (seq[pos[i]] + str(pos[i] + first), pKs[i], pKs[i] - pK0s[i], nHs[i]) #pKs[i]#, pKs[i] - pK0s[i], nHs[i]
     outfile = open(seq[pos[i]] + str(pos[i] + first) + '_titration.dat', 'w')
     for p in range(len(pHs)):
         outfile.write('%7.7f, %7.7f\n' % (pHs[p], titration[i][p]))
