@@ -77,6 +77,5 @@ Authors thank Alison Lowndes and Carlo Ruiz, (NVIDIA Corporation) for facilitati
 **pepkalc** is based on ongoing scientific research of [Frans A.A. Mulder Laboratory at Aarhus University (Denmark)](http://inano.au.dk/about/research-groups/laboratory-for-biomolecular-nmr-spectroscopy/) and [Peptone - The Protein Intelligence Company](https://peptone.io) into protein electrostatics in unfolded state and development of numerical methods for biophysical characterization of Intrinsically Disordered Proteins.
 
 Please cite **pepkalc** as:
-```
+
 pepKalc - scalable and comprehensive calculation of electrostatic interactions in random coil polypeptides. Tamiola K., Scheek R.M., van der Meulen P., and Mulder F.A.A. Bioinformatics 2017 (Submitted).
-```
