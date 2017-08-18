@@ -46,10 +46,10 @@ The ionic strength in `M`. Default value `0.0`.
 The dielectric permeability of solvent. Default value `83.83` (assuming aqueous solution).
 
 #### --gca
-The Gaussian-chain parameter `A`. Default value `5.0`.
+Charge distance shift due to side chain. Default value `5.0`.
 
 #### --gcb
-The Gaussian-chain parameter `B`. Default value `7.5`.
+The effective residue separation. Default value `7.5`.
 
 #### --cutoff
 The cutoff size for explicit interaction energy calculations. Default value `2`.  
