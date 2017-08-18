@@ -68,16 +68,16 @@ def w2logp(x, R, T):
 
 # Argument parsing
 parser = argparse.ArgumentParser()
-parser.add_argument("--sequence", default='nMDVFMKGLSKAKEGVVAAAEKTKQGVAEAAGKTKEGVLYVGSKTKEGVVHGVATVAEKTKEQVTNVGGAVVTGVTAVAQKTVEGAGSIAAATGFVKKDQLGKNEEGAPQEGILEDMPVDPDNEAYEMPSEEGYQDYEPEAc', help="Protein sequence in one-letter FASTA format. [n] denotes N-terminus. [c] denotes C-terminus.")
-parser.add_argument("--temperature", default=283.15, help="Temperature in [K]")
-parser.add_argument("--ionicstrength", default=0.0, help="Ionic strength in [M]")
-parser.add_argument("--epsilon", default=83.83, help="Dielecttric permittivity")
-parser.add_argument("--gca", default=5, help="Gaussian-chain paramter A")
-parser.add_argument("--gcb", default=7.5, help="Gaussian-chain paramter B")
-parser.add_argument("--cutoff", default=2, help="Explicit calculation cutoff")
-parser.add_argument("--ncycles", default=3, help="The number of super-cycles")
-parser.add_argument("--nooutput", action='store_true', default=False, help="Do not generate output file")
-parser.add_argument("--silent", action='store_true', default=False, help="Do not print calculation output")
+parser.add_argument("--sequence", default='nMDVFMKGLSKAKEGVVAAAEKTKQGVAEAAGKTKEGVLYVGSKTKEGVVHGVATVAEKTKEQVTNVGGAVVTGVTAVAQKTVEGAGSIAAATGFVKKDQLGKNEEGAPQEGILEDMPVDPDNEAYEMPSEEGYQDYEPEAc', help="Protein sequence in one-letter FASTA format. [n] denotes N-terminus. [c] denotes C-terminus. Default [nMDVFMKGLSKAKEGVVAAAEKTKQGVAEAAGKTKEGVLYVGSKTKEGVVHGVATVAEKTKEQVTNVGGAVVTGVTAVAQKTVEGAGSIAAATGFVKKDQLGKNEEGAPQEGILEDMPVDPDNEAYEMPSEEGYQDYEPEAc].")
+parser.add_argument("--temperature", default=283.15, help="Temperature in [K]. Default [283.15].")
+parser.add_argument("--ionicstrength", default=0.0, help="Ionic strength in [M]. Default [0.0].")
+parser.add_argument("--epsilon", default=83.83, help="Dielecttric permittivity. Default [83.83].")
+parser.add_argument("--gca", default=5.0, help="Charge shift distance due to side chain [A]. Default [5.0].")
+parser.add_argument("--gcb", default=7.5, help="The effective residue separation [A]. Default [7.5].")
+parser.add_argument("--cutoff", default=2, help="Explicit calculation cutoff. Default [2].")
+parser.add_argument("--ncycles", default=3, help="The number of super-cycles. Default [3].")
+parser.add_argument("--nooutput", action='store_true', default=False, help="Do not generate output file. Default [False].")
+parser.add_argument("--silent", action='store_true', default=False, help="Do not print calculation output. Default [False].")
 args = parser.parse_args()
 
 if not args.silent:
