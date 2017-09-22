@@ -96,6 +96,9 @@ ncycles = int(args.ncycles)
 pK0 = {"n": 7.5, "C": 8.6, "D": 4.0, "E": 4.4,
        "H": 6.6, "K": 10.4, "R": 12.0, "Y": 9.6, "c": 3.5}
 
+q0 = {"n": 0.0, "C": -1.0, "D": -1.0, "E": -1.0,
+      "H": 0.0, "K": 0.0, "R": 0.0, "Y": -1.0, "c": -1.0}
+
 pos = np.array([i for i in xrange(len(seq)) if seq[i] in pK0.keys()])
 sites = ''.join([seq[i] for i in pos])
 
@@ -135,6 +138,8 @@ if len(sites) <= 2 * cutoff + 1:
 titration = np.array([[hasselbalch(pHs[p], pK0s[i], nH0s[i])
                        for i in range(len(pos))] for p in range(len(pHs))]).transpose()
 
+Qs = titration
+
 for icycle in range(ncycles):
     # print icycle + 1
     fractionhold = titration.transpose()
@@ -157,6 +162,8 @@ for icycle in range(ncycles):
                                for c in alltuples if c[resi - 1] == 1]) for p in range(len(pHs))])
         titration[ires - 1] = E_sel / E_all
 
+        Qs[ires-1] = titration[ires - 1] + q0[sites[ires-1]]
+
     sol = np.array([curve_fit(hasselbalch, pHs, titration[i], [
                    pK0s[i], nH0s[i]])[0] for i in range(len(pK0s))])
     (pKs, nHs) = sol.transpose()
@@ -164,6 +171,10 @@ for icycle in range(ncycles):
 first = 0
 if not seq[0] == 'n':
     first = 1
+
+# Compute the overall charge
+Q = np.sum(Qs, axis=0)
+G = -1.0 * w2logp(Q, R, temp)
 
 # Print the header
 if not args.silent:
@@ -174,6 +185,13 @@ for i in range(len(sol)):
         print '%s, %f, %f, %f' % (seq[pos[i]] + str(pos[i] + first), pKs[i], pKs[i] - pK0s[i], nHs[i]) #pKs[i]#, pKs[i] - pK0s[i], nHs[i]
     if not args.nooutput:
         outfile = open(seq[pos[i]] + str(pos[i] + first) + '_titration.dat', 'w')
-        for p in range(len(pHs)):
-            outfile.write('%7.7f, %7.7f\n' % (pHs[p], titration[i][p]))
         outfile.close()
+
+if not args.nooutput:
+    outfile2 = open('Total_Q.dat', 'w')
+    outfile3 = open('Total_G.dat', 'w')
+    for p in range(len(pHs)):
+        outfile2.write('%7.7f, %7.7f\n' % (pHs[p], Q[p]))
+        outfile3.write('%7.7f, %7.7f\n' % (pHs[p], G[p]))
+    outfile2.close()
+    outfile3.close()
