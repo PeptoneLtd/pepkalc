@@ -66,7 +66,7 @@ Do not write diagnostic messages to Terminal.
 ## Issues
 We are always looking forward to improving **pepkalc**.
 
-Please file bug reports, issues or suggestions using https://github.com/PeptoneInc/pepkalc/issues
+Please file bug reports, issues or suggestions using https://github.com/PeptoneLtd/pepkalc/issues
 
 Should you have questions related to scientific and industrial implications of **pepkalc**, please contact us at support@peptone.io.
 
