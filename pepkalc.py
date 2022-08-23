@@ -138,7 +138,7 @@ if len(sites) <= 2 * cutoff + 1:
 titration = np.array([[hasselbalch(pHs[p], pK0s[i], nH0s[i])
                        for i in range(len(pos))] for p in range(len(pHs))]).transpose()
 
-Qs = titration
+Qs = titration.copy()
 
 for icycle in range(ncycles):
     # print icycle + 1
